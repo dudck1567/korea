@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+body{
+    font-family: '나눔고딕';
+    font-size: 16px;
+    color: #333;
+}
+
+.row{
+    max-width: 960px; margin: 0px auto;
+}
+/* #header .inner::after{
+    content: '';
+    display: block;
+    clear: both;
+} */
+
+/* 블록요소가 float을 가지면 넓이는 자식한테 맞춰짐 */
+#header{
+    box-shadow: 0px 2px 3px #ddd;
+    position: relative;
+    z-index: 999;
+}
+#header h1{
+    float: left;
+    width: 40%;
+}
+#header nav{
+    float: right;
+    width: 60%;
+    margin-top: 35px;
+    /* border: 1px solid #000; */
+} /* float를 이용해서 한줄로 정렬해줄때 총 넓이가 합쳐서 100%가 돼야한다 */
+
+/* #header nav .depth1::after{
+    content: ''; 내용 없는
+    display: block; 블록 요소를 추가
+    clear: both; 부모 자식 속성을 둘다 적용
+} overflow: hidden을 쓸 수 없을때 쓰는 공식. 자식이 float 속성을 가지므로 부모의 높이가 무너질 때. 부모 박스 바깥쪽에 overflow된 자식이 있을 때 */
+
+#header nav .depth1 > li{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    position: relative;
+}
+#header nav .depth1 > li > a{
+    display: block;
+    padding: 13px 0px;
+}
+#header nav .depth1 > li:hover > a{
+    background: #009688;
+    color: #fff;
+}
+.depth2{
+    display: none;
+    position: absolute; /* 부모 아래로 박스를 내려야되기 때문에 설정 */
+    top:100%;
+    left:0%;
+    width:100%;
+    background: rgba(255, 255, 255, 0.6);
+}
+.depth2 > li{
+    line-height: 2;
+}
+.depth2 > li > a{
+    display: block;
+}
+.depth2 > li:hover{
+    background: #009688;
+    color: #fff;
+}
+#header nav .depth1 > li:hover .depth2{
+    display: block;
+}
+/* 섹션 시작 */
+#section .slide > div{
+    position: relative;
+}
+#section .slide > div > .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+#section .slide > div > .text h2{
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+#section .slide > div > .text p{
+    font-size: 26px;
+}
+#section .notice{
+    float: left;
+    width: 48%;
+}
+#section .partner{
+    float: right;
+    width: 48%;
+}
+#section .ntpt{
+    padding: 20px 0px;
+}
+#section .ntpt h2{
+    text-align:center;
+    padding: 12px 0px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.notice table{
+    font-size: 12px;
+    border-top: 1px solid #000;
+}
+.notice table th{
+    text-align: center;
+    font-weight: bold;
+}
+.notice col:nth-child(1){width:auto;}
+.notice col:nth-child(2){width:85px;}
+.notice table td:nth-child(2){text-align:center;}
+.notice table td, .notice table th{
+    padding: 10px 8px;     
+}
+.notice table td:nth-child(1){
+    white-space: nowrap;
+    overflow: hidden; /* 줄바뀜이 없도록 하고 싶을 때 */
+    text-overflow:ellipsis; /* 넘어가는 글씨에 말줄임표 표시 */
+}
+.notice table tbody tr:nth-child(odd){background: lime;} 
+/* odd 2n+1 홀수, eve 2n 짝수 */
+.partner .inscom{text-align:center; margin: 30px 0px 20px;}
+.partner .inscom a:nth-child(1) > img {width:50%; padding-right: 30px;}
+.partner .inscom a:nth-child(2) > img {width:30%;}
+
+#modal{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display:none;
+}
+#modal:target{
+    display:block;
+}
+#modal .inner{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 20px;
+    background: #fff;
+
+}
+#modal a{
+    display:block;
+    width:60px;
+    text-align: center;
+    padding: 15px 0px;
+    background: #009688;
+    color: #fff;
+    border-radius: 10px;
+    font-size:15px;
+    margin:30px auto 0px;
+}
+.mainpjt span{
+    display: block;
+    font-size: 18px;
+}
+.mainpjt span:nth-child(2){
+    text-align: center;
+    padding: 33px 0px;
+}
+.mainpjt span:nth-child(3){
+    text-align: right;
+}
+#section article:nth-child(3) ul{
+    overflow: hidden;
+}
+#section article:nth-child(3) li{
+    float:left;
+    width:33.33%;
+    text-align: center;
+    padding:100px 30px 50px;
+    /* border: 1px solid #ccc; */
+}
+#section article:nth-child(3) li img{
+    display: block;
+    margin: 0 auto 30px;
+}
+#section article:nth-child(3) li a{
+    display: inline-block;
+    background: #009688;
+    padding:15px 20px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 25px;
+}
+#footer{
+    background: #009688;
+    color:#fff;
+    padding:30px 0px;
+}
+#footer ul{
+    float: left;
+}
+#footer ul li{
+    display: inline-block;
+    font-size: 18px;
+    margin:20px 20px 0px 0px;
+}
+#footer pre{
+    float:right;
+    font-size: 12px;
+    line-height: 1.5em;
+    font-family: '나눔고딕';
+}
